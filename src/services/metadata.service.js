@@ -13,6 +13,8 @@ async function readMusicMetadata(filePath) {
   const pictureMimeType = picture?.format?.toLowerCase()
 
   return {
+    // 风格标签只取第一个 genre，供音乐盲盒做标签过滤；缺失时留空，不做猜测。
+    genre: Array.isArray(common.genre) ? String(common.genre[0] || '').slice(0, 60) : '',
     title: common.title || '',
     artist: common.artist || common.albumartist || '',
     album: common.album || '',

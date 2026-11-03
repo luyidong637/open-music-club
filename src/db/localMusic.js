@@ -33,6 +33,7 @@ function createMusic(database, music) {
         title,
         artist,
         album,
+        genre,
         original_filename,
         stored_filename,
         file_path,
@@ -43,12 +44,13 @@ function createMusic(database, music) {
         file_size,
         duration_ms,
         uploader_id
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     )
     .run(
       music.title,
       music.artist,
       music.album,
+      music.genre,
       music.originalFilename,
       music.storedFilename,
       music.filePath,
